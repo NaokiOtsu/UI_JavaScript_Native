@@ -1,0 +1,20 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Accordion */
+.accordion-title {
+	border: 1px solid #999999;
+}
+
+.accordion-contents {
+	overflow: hidden;
+	transition: height .3s ease-in-out;
+}
+
+.accordion-contents .inner {
+	padding: 10px;
+	border: 1px solid #999999;
+}
+
