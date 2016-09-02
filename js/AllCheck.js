@@ -20,15 +20,14 @@ window.ui = window.ui || {};
 	};
 	
 	AllCheck.prototype.allCheckToggle = function(event) {
-		if (this.trigger.checked) {
-			this.children.forEach(function(element, index) {
+		this.children.forEach(function(element, index) {
+			if (this.trigger.checked) {
 				element.checked = true;
-			});
-		} else {
-			this.children.forEach(function(element, index) {
+			} else {
 				element.checked = false;
-			});
-		}
+			}
+		}.bind(this));
+		
 	};
 	
 	window.ui.AllCheck = AllCheck;
