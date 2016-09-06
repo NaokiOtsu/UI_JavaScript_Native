@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="all-check-container">
+  <form action="">
+    <div><label for="checkbox"><input id="checkbox" type="checkbox" data-all-checkbox-trigger>全てにチェック</label></div>
+    <input type="checkbox" data-all-checkbox-children>
+    <input type="checkbox" data-all-checkbox-children>
+    <input type="checkbox" data-all-checkbox-children>
+    <input type="checkbox" data-all-checkbox-children>
+  </form>
+</div>
+
+<script src="js/AllCheck.js"></script>
+<script>
+window.ui = window.ui || {};
+(function (window) {
+  'use strict';
+
+  window.addEventListener('load', function () {
+    var all_check = new window.ui.AllCheck();
+  });
+
+})(window);
+</script>
+</body>
+</html>

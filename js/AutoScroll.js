@@ -3,28 +3,10 @@ window.ui = window.ui || {};
 (function (window) {
   'use strict';
 
-  var DATA_ATTR_NAME = {
-    trigger: 'data-accordion-trigger',
-    contents: 'data-accordion-contents'
-  };
 
-  var CLASS_NAME = {
-    active: 'active'
-  };
 
-  function Accordion() {
-    this.trigger = document.querySelectorAll('[' + DATA_ATTR_NAME.trigger + ']');
-    this.contents = document.querySelectorAll('[' + DATA_ATTR_NAME.contents + ']');
+  function AutoScroll() {
 
-    // 要素のHeight取得
-    this.data_height = {};
-    this.contents.forEach(function (element, index) {
-      var data_name = element.getAttribute(DATA_ATTR_NAME.contents);
-      this.data_height[data_name] = element.offsetHeight;
-      element.style.height = 0;
-    }.bind(this));
-
-    this.eventBinds();
   }
 
   Accordion.prototype.eventBinds = function () {
@@ -47,6 +29,6 @@ window.ui = window.ui || {};
     }.bind(this));
   };
 
-  window.ui.Accordion = Accordion;
+  window.ui.AutoScroll = AutoScroll;
 
 })(window);
