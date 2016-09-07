@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="carousel-container">
+  <div class="carousel-contents-container">
+    <ul class="carousel-contents" data-carousel-contents>
+      <li>hoge1</li>
+      <li>hoge2</li>
+      <li>hoge3</li>
+      <li>hoge4</li>
+      <li>hoge5</li>
+    </ul>
+  </div>
+  <ul class="carousel-thumb" data-carousel-thumb>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul class="carousel-btns">
+    <li data-carousel-prev>戻る</li>
+    <li data-carousel-next>次へ</li>
+  </ul>
+</div>
+
+<script src="js/Carousel.js"></script>
+<script>
+window.ui = window.ui || {};
+(function (window) {
+  'use strict';
+
+  window.addEventListener('load', function () {
+    var carousel = new window.ui.Carousel();
+  });
+
+})(window);
+</script>
+</body>
+
+</html>

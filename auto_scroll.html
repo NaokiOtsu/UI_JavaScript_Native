@@ -9,7 +9,14 @@
 
 <body>
 
-hoge
+<div style="height: 1500px; background: #efefef;">
+  hoge1
+</div>
+
+<button data-auto-scroll-trigger>scroll</button>
+<div id="hoge2" style="height: 1500px; background: #fefefe;">
+  hoge2
+</div>
 
 <script src="js/AutoScroll.js"></script>
 <script>
@@ -17,11 +24,12 @@ window.ui = window.ui || {};
 (function (window) {
   'use strict';
 
-  window.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('load', function () {
     var auto_scroll = new window.ui.AutoScroll();
   });
 
 })(window);
+</script>
 </body>
 
 </html>

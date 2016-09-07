@@ -4,12 +4,12 @@ window.ui = window.ui || {};
   'use strict';
 
   var DATA_ATTR_NAME = {
-    'trigger': 'data-all-checkbox-trigger',
-    'children': 'data-all-checkbox-children'
+    'trigger'  : 'data-all-checkbox-trigger',
+    'children' : 'data-all-checkbox-children'
   };
 
   function AllCheck() {
-    this.trigger = document.querySelector('[' + DATA_ATTR_NAME.trigger + ']');
+    this.trigger  = document.querySelector('[' + DATA_ATTR_NAME.trigger + ']');
     this.children = document.querySelectorAll('[' + DATA_ATTR_NAME.children + ']');
 
     this.eventBinds();

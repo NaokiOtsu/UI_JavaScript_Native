@@ -4,8 +4,8 @@ window.ui = window.ui || {};
   'use strict';
 
   var DATA_ATTR_NAME = {
-    trigger: 'data-accordion-trigger',
-    contents: 'data-accordion-contents'
+    trigger  : 'data-accordion-trigger',
+    contents : 'data-accordion-contents'
   };
 
   var CLASS_NAME = {
@@ -15,7 +15,7 @@ window.ui = window.ui || {};
   function Accordion() {
     console.log('111');
     
-    this.trigger = document.querySelectorAll('[' + DATA_ATTR_NAME.trigger + ']');
+    this.trigger  = document.querySelectorAll('[' + DATA_ATTR_NAME.trigger + ']');
     this.contents = document.querySelectorAll('[' + DATA_ATTR_NAME.contents + ']');
 
     // 要素のHeight取得
