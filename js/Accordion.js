@@ -13,6 +13,8 @@ window.ui = window.ui || {};
   };
 
   function Accordion() {
+    console.log('111');
+    
     this.trigger = document.querySelectorAll('[' + DATA_ATTR_NAME.trigger + ']');
     this.contents = document.querySelectorAll('[' + DATA_ATTR_NAME.contents + ']');
 
