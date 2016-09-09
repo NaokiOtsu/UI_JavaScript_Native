@@ -11,6 +11,8 @@ window.ui = window.ui || {};
   };
 
   function Carousel() {
+    window.ui.Base.apply(this, arguments); // super()
+    
     this.contents = document.querySelector('['+ DATA_ATTR_NAME.contents +']');
     this.prev     = document.querySelector('['+ DATA_ATTR_NAME.prev +']');
     this.next     = document.querySelector('['+ DATA_ATTR_NAME.next +']');
@@ -22,6 +24,8 @@ window.ui = window.ui || {};
     this.bindEvents();
     this.thumbCheck();
   }
+  Carousel.prototype = Object.create(window.ui.Base.prototype); // extend
+  Carousel.prototype.constructor = Carousel;
 
   Carousel.prototype.bindEvents = function () {
     this.prev.addEventListener('click', this.onPrev.bind(this));

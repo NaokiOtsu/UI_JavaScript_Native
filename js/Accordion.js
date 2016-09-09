@@ -13,7 +13,7 @@ window.ui = window.ui || {};
   };
 
   function Accordion() {
-    console.log('111');
+    window.ui.Base.apply(this, arguments); // super()
     
     this.trigger  = document.querySelectorAll('[' + DATA_ATTR_NAME.trigger + ']');
     this.contents = document.querySelectorAll('[' + DATA_ATTR_NAME.contents + ']');
@@ -28,6 +28,8 @@ window.ui = window.ui || {};
 
     this.eventBinds();
   }
+  Accordion.prototype = Object.create(window.ui.Base.prototype); // extend
+  Accordion.prototype.constructor = Accordion;
 
   Accordion.prototype.eventBinds = function () {
     this.trigger.forEach(function (element, index) {

@@ -12,6 +12,8 @@ window.ui = window.ui || {};
   };
 
   function AutoScroll() {
+    window.ui.Base.apply(this, arguments); // super()
+    
     this.trigger = document.querySelector('['+ DATA_ATTR_NAME.trigger +']');
     
     this.bindEvents();
@@ -21,6 +23,8 @@ window.ui = window.ui || {};
       hoge2.scrollIntoView(true);
     }.bind(this));
   }
+  AutoScroll.prototype = Object.create(window.ui.Base.prototype); // extend
+  AutoScroll.prototype.constructor = AutoScroll;
 
   AutoScroll.prototype.bindEvents = function () {
     this.trigger.addEventListener('click', this.scroll.bind(this, 0));

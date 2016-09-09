@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .box {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      background: #efefef;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box" data-draggable-target></div>
+
+<script src="js/Base.js"></script>
+<script src="js/Draggable.js"></script>
+<script>
+window.ui = window.ui || {};
+(function (window) {
+  'use strict';
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var draggable = new window.ui.Draggable();
+  });
+
+})(window);
+</script>
+</body>
+
+</html>
