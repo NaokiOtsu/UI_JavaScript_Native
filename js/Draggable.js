@@ -12,10 +12,11 @@ window.ui = window.ui || {};
 
     this.target = document.querySelector('['+ DATA_ATTR_NAME.target +']');
 
-    this.x = 0;
-    this.y = 0;
-    this.target_width = '';
-    this.touching = false;
+    this.start_x   = 0;
+    this.start_y   = 0;
+    this.current_x = 0;
+    this.current_y = 0;
+    this.touching  = false;
 
     this.bindEvents();
   }
@@ -26,52 +27,47 @@ window.ui = window.ui || {};
     this.target.addEventListener(this.getTouchStartName(), this.start.bind(this));
     this.target.addEventListener(this.getTouchMoveName(), this.move.bind(this));
     this.target.addEventListener(this.getTouchEndName(), this.end.bind(this));
+    this.target.addEventListener(this.getTouchCancelName(), this.cancel.bind(this));
     window.requestAnimationFrame(this.tick.bind(this));
   };
 
   Draggable.prototype.start = function (event) {
-    console.log('start');
-    this.x = this.getPositionX(event);
-    this.y = this.getPositionY(event);
+    this.start_x = this.getClientX(event) - event.target.offsetLeft;
+    this.start_y = this.getClientY(event) - event.target.offsetTop;
+    this.current_x = this.getClientX(event);
+    this.current_y = this.getClientY(event);
+    
     this.touching = true;
   };
 
   Draggable.prototype.move = function (event) {
-    console.log('move');
-    this.x = this.getPositionX(event);
-    this.y = this.getPositionY(event);
+    this.current_x = this.getClientX(event);
+    this.current_y = this.getClientY(event);
   };
 
   Draggable.prototype.end = function (event) {
-    console.log('end');
     this.touching = false;
   };
 
   Draggable.prototype.cancel = function (event) {
-    console.log('cancel');
     this.touching = false;
   };
 
-  Draggable.prototype.getPositionX = function (event) {
-    var x = this.isTouchable() ? event.changedTouches[0].clientX : event.clientX;
-    // x = x - (x - this.target.offsetLeft);
-    return x;
+  Draggable.prototype.getClientX = function (event) {
+    return this.isTouchable() ? event.changedTouches[0].clientX : event.clientX;
   };
 
-  Draggable.prototype.getPositionY = function (event) {
-    var y = this.isTouchable() ? event.changedTouches[0].clientY : event.clientY;
-    // y = y - (y - this.target.offsetTop);
-    return y;
+  Draggable.prototype.getClientY = function (event) {
+    return this.isTouchable() ? event.changedTouches[0].clientY : event.clientY;
   };
 
   Draggable.prototype.tick = function () {
     window.requestAnimationFrame(this.tick.bind(this));
 
-    if (!this.touching) return; 
-    console.log('tick');
-    
-    this.target.style.left = this.x + 'px';
-    this.target.style.top = this.y + 'px';
+    if (!this.touching) return;
+
+    this.target.style.left = this.current_x - this.start_x + 'px';
+    this.target.style.top = this.current_y - this.start_y + 'px';
   };
 
   window.ui.Draggable = Draggable;

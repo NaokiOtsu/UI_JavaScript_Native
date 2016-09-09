@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #efefef;}
+    .meter-container {
+      margin: 100px;
+      border: 1px solid #999999;
+      background: white;
+    }
+    .meter-gauge {
+      width: 0;
+      height: 10px;
+      background-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="meter-container">
+  <div class="meter-gauge"></div>
+</div>
+
+<script src="js/Base.js"></script>
+<script src="js/Meter.js"></script>
+<script>
+window.ui = window.ui || {};
+(function (window) {
+  'use strict';
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var meter = new window.ui.Meter();
+  });
+
+})(window);
+</script>
+</body>
+
+</html>
